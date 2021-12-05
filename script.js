@@ -1,3 +1,14 @@
+const wrapper = document.getElementById('wrapper');
+let player = 0;
+let computer = 0;
+let reset = false;
+
+wrapper.addEventListener('click', (event) => {
+    const choice = event.target.nodeName === 'BUTTON';
+    if(!choice) return;
+    game(playRound(event.target.id));
+})
+
 function computerPlay(){
     let choice = Math.floor(Math.random() * 3);
     return choice == 0 ? 'Rock'
@@ -5,14 +16,7 @@ function computerPlay(){
         : 'Scissors';
 }
 
-function playRound(){
-    let playerSelection = prompt('Rock, Paper, or Scissors?');
-    playerSelection = playerSelection.toLowerCase();
-    while(playerSelection != 'rock' && playerSelection != 'paper' && playerSelection != 'scissors' && playerSelection != 'quit'){
-        alert('Invalid input, please choose Rock, Paper, or Scissors.');
-        playerSelection = prompt('Rock, Paper, or Scissors?');
-        playerSelection = playerSelection.toLowerCase();
-    }
+function playRound(playerSelection){
     let computerSelection = computerPlay();
     return computerSelection == 'Rock' && playerSelection == 'paper' ? 'You Win! Paper beats Rock.'
         : computerSelection == 'Rock' && playerSelection == 'scissors' ? 'You Lose! Rock beats Scissors.'
@@ -23,22 +27,25 @@ function playRound(){
         : 'Tie!';
 }
 
-function game(){
-    let player = 0;
-    let computer = 0;
-    for(let i = 0; i < 5; i++){
-        let result = playRound();
-        if(result.includes('Win')) player++;
-        else if(result.includes('Lose')) computer++;
-        alert(result + '\nCurrent Score\n You: ' + player + ' Computer: ' + computer);
-        if(computer == 3 || player == 3) break;
+function game(round){
+    if(round.includes('Win'))
+        player++;
+    else
+        computer++;
+    if(reset){
+        console.log('New game');
+        document.getElementById("continue").innerHTML = '';
+        reset = false;
     }
-    computer == player ? alert('Tie!' + '\nFinal Score\n You: ' + player + ' Computer: ' + computer)
-        : computer > player ? alert('You Lose.' + '\nFinal Score\n You: ' + player + ' Computer: ' + computer)
-        : alert('You Win!' + '\nFinal Score\n You: ' + player + ' Computer: ' + computer);
-    let newGame = prompt('Want to try again? y/n');
-    if(newGame == 'Y' || newGame == 'y') game();
+    document.getElementById("score").innerHTML = round + '<br/>Current Score<br/> You: ' + player + ' Computer: ' + computer;
+    if(player == 5)
+    document.getElementById("score").innerHTML = 'You won the game!';
+    if(computer == 5)
+    document.getElementById("score").innerHTML = 'You lost the game!';
+    if(player == 5 || computer == 5){
+        player = 0;
+        computer = 0;
+        document.getElementById("continue").innerHTML = '<br/><em>Continue?</em>';
+        reset = true;
+    }
 }
-
-alert('Welcome to Rock, Paper, Scissors!\nThis will be a 5 round game. Good luck!');
-game();
