@@ -30,7 +30,7 @@ function playRound(playerSelection){
 function game(round){
     if(round.includes('Win'))
         player++;
-    else
+    else if(round.include('Lose'))
         computer++;
     if(reset){
         console.log('New game');
