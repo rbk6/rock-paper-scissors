@@ -3,18 +3,28 @@
     <head>
   <title>Rock Paper Scissors</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="./icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap" rel="stylesheet">
   <meta charset="UTF-8"/>
     </head>
     <body>
-        <script src="script.js" defer></script>
-        <div id="wrapper">
-          <button id="rock">Rock</button>
-          <button id="paper">Paper</button>
-          <button id="scissors">Scissors</button>
+      <script src="script.js" defer></script>
+      <h1>Rock, Paper, Scissors!</h1>
+      <div>
+        <h3 id="start">Start a Game</h3>
+        <div class="container">
+          <p id="you"><br></br></p>
+          <p id="comp"></p>
         </div>
-        <div class="text">
-          <div id="score">Welcome to Rock, Paper, Scissors!</div>
-          <div id="continue"></div>
-        </div>
+      </div>
+      <div id="wrapper">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+      </div>
+      <div id="out"></div>
+      <div id="continue"></div>
     </body>
 </html>

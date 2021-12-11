@@ -28,24 +28,28 @@ function playRound(playerSelection){
 }
 
 function game(round){
+    document.getElementById("continue").innerHTML = '';
     if(round.includes('Win'))
         player++;
     if(round.includes('Lose'))
         computer++;
+    document.getElementById("out").innerHTML = round;
     if(reset){
-        console.log('New game');
-        document.getElementById("continue").innerHTML = '';
         reset = false;
+        document.getElementById("out").setAttribute('style', 'color: white;');
     }
-    document.getElementById("score").innerHTML = round + '<br/>Current Score<br/> You: ' + player + ' Computer: ' + computer;
-    if(player == 5)
-    document.getElementById("score").innerHTML = 'You won the game!';
-    if(computer == 5)
-    document.getElementById("score").innerHTML = 'You lost the game!';
+    document.getElementById("start").innerText = 'Current Score'
+    document.getElementById("you").innerHTML = 'You: ' + player;
+    document.getElementById("comp").innerHTML = 'Computer: ' + computer;
     if(player == 5 || computer == 5){
+        player > computer ? document.getElementById("out").setAttribute('style', 'color: rgb(0, 255, 170);')
+            : document.getElementById("out").setAttribute('style', 'color: rgb(255, 0, 85);');
+        player > computer ? document.getElementById("out").innerHTML = 'You Won the Game!'
+            : document.getElementById("out").innerHTML = 'You Lost the Game!';
+        document.getElementById("continue").innerHTML = 'Continue?';
         player = 0;
         computer = 0;
-        document.getElementById("continue").innerHTML = '<br/><em>Continue?</em>';
         reset = true;
+        document.getElementById("start").innerText = 'Final Score';
     }
 }

@@ -1,26 +1,72 @@
 body {
-    background-color: rgb(103, 235, 191);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Zilla Slab', serif;
+    background-color: rgb(34, 34, 34);
+    text-shadow: 2px 2px 4px rgb(20, 20, 20);
+    text-align: center;
 }
 
 button {
-    background-color:rgb(39, 117, 91);
-    color: white;
-    font-weight: 500;
     font-size: 24px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    color: white;
+    background-color:rgb(54, 54, 54);
+    box-shadow: 2px 2px 4px rgb(20, 20, 20);
+}
+
+button:hover {
+    background-color: rgb(64, 64, 64);
+}
+
+h1 {
+    font-size: 64px;
+    color: rgb(231, 188, 47);
+}
+
+h3 {
+    font-size: 32px;
+    text-decoration: underline;
+    color: white;
+    margin: -24px 0 0 0;
+}
+
+p {
+    font-size: 24px;
+
 }
 
 #wrapper {
     display: flex;
     justify-content: center;
-    margin: 100px;
     gap: 15px;
 }
 
-.text {
-    display: flex;
-    justify-content: center;
-    font-size: 32px;
-    text-align: center;
-    font-weight: 800;
+#you {
+    color:rgb(0, 255, 170);
+}
+
+#comp {
+    color:rgb(255, 0, 85);
+}
+
+#you, #comp {
+    font-size: 24px;
+    margin: 0;
+}
+
+#out {
+    font-size: 48px;
+    margin-top: 32px;
+    color:rgb(255, 255, 255);
+}
+
+#continue {
+    font-size: 24px;
+    color:rgb(255, 255, 255);
+}
+
+.container {
+    margin: 24px 0;
 }
